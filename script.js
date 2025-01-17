@@ -88,9 +88,11 @@ function validateForm(event) {
 
   const phone = document.getElementById("phone").value.trim();
   const birthday = document.getElementById("birthday").value;
+  const successMessage = document.getElementById("successMessage");
 
   if (phone.length !== 10) {
     alert("Please enter a valid 10-digit phone number.");
+    successMessage.style.display = "none"; 
     return false;
   }
 
@@ -104,10 +106,12 @@ function validateForm(event) {
 
   if (age < 18) {
     alert("You must be at least 18 years old.");
+    successMessage.style.display = "none"; // Hide success message
     return false;
   }
 
-  alert("Thanks for your interest, our tour experts will get back to you shortly!");
+  // Show success message
+  successMessage.style.display = "block";
   document.getElementById("bookingForm").reset(); // Clear the form
   return true;
 }
