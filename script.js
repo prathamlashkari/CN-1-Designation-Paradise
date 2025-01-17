@@ -80,5 +80,34 @@ function populateCountryCodes() {
   });
 }
 
-// Initialize the page by populating country codes and package elements
 populateCountryCodes();
+
+
+function validateForm(event) {
+  event.preventDefault();
+
+  const phone = document.getElementById("phone").value.trim();
+  const birthday = document.getElementById("birthday").value;
+
+  if (phone.length !== 10) {
+    alert("Please enter a valid 10-digit phone number.");
+    return false;
+  }
+
+  const today = new Date();
+  const birthDate = new Date(birthday);
+  const age = today.getFullYear() - birthDate.getFullYear();
+  const monthDifference = today.getMonth() - birthDate.getMonth();
+  if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
+  if (age < 18) {
+    alert("You must be at least 18 years old.");
+    return false;
+  }
+
+  alert("Thanks for your interest, our tour experts will get back to you shortly!");
+  document.getElementById("bookingForm").reset(); // Clear the form
+  return true;
+}

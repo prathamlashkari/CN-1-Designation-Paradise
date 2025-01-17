@@ -76,48 +76,50 @@
     <!-- Home Section -->
     <div class="container" id="home">
       <div class="home-form-section">
-          <h2>Book Your Dream Vacation</h2>
-          <form id="bookingForm">
-              <div class="mb-3">
-                  <label for="name" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="name" required>
-              </div>
-              <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email" required>
-              </div>
-              <div class="mb-3 combined-phone">
-                <label for="phone" class="form-label">Phone Number</label>
-                <div class="d-flex">
-                  <select class="form-select country-code-select" id="countryCode" required>
-                  </select>
-                  <input type="number" class="form-control phone-input" id="phone" placeholder="Enter phone number" required>
-                </div>
-              </div>
-              
-              <div class="mb-3">
-                  <label for="birthday" class="form-label">Birthday</label>
-                  <input type="date" class="form-control" id="birthday" required>
-              </div>
-              <div class="mb-3">
-                  <label for="martialStatus" class="form-label">Marital Status</label>
-                  <select class="form-select" id="martialStatus" required>
-                      <option value="single">Single</option>
-                      <option value="married">Married</option>
-                  </select>
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+        <h2>Book Your Dream Vacation</h2>
+        <form id="bookingForm" onsubmit="return validateForm(event)">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+          <div class="mb-3 combined-phone">
+            <label for="phone" class="form-label">Phone Number</label>
+            <div class="d-flex">
+              <select class="form-select country-code-select" id="countryCode" required>
+                <option value="+1">+1</option>
+                <option value="+91">+91</option>
+                <option value="+44">+44</option>
+                <!-- Add more country codes as needed -->
+              </select>
+              <input type="number" class="form-control phone-input" id="phone" placeholder="Enter phone number" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="birthday" class="form-label">Birthday</label>
+            <input type="date" class="form-control" id="birthday" required>
+          </div>
+          <div class="mb-3">
+            <label for="martialStatus" class="form-label">Marital Status</label>
+            <select class="form-select" id="martialStatus" required>
+              <option value="single">Single</option>
+              <option value="married">Married</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
       <div class="line"></div>
       <!-- Travel Packages Section -->
       <div class="home-packages-section">
-          <h2>Explore Our Travel Packages</h2>
-          <div class="packages-container" id="packages-container"></div>
+        <h2>Explore Our Travel Packages</h2>
+        <div class="packages-container" id="packages-container"></div>
       </div>
-  </div>
-  
-
+    </div>
+    
     <!-- About Section -->
     <div class="about-container" id="about">
         <div class="row">
