@@ -17,7 +17,7 @@
           <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse custom-nav" id="navbarNav">
-          <ul class="navbar-nav me-auto">
+          <ul class="navbar-nav me-auto" style="padding-left: 23rem;" >
               <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="destinationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -33,8 +33,7 @@
               <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
           </ul>
           <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+            <input type="text" id="searchInput" class="form-control" placeholder="Search Packages" oninput="filterPackages()">
           </form>
       </div>
   </nav>
@@ -76,48 +75,48 @@
   
     <!-- Home Section -->
     <div class="container" id="home">
-        <div class="home-form-section">
-            <h2>Book Your Dream Vacation</h2>
-            <form id="bookingForm">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" required>
+      <div class="home-form-section">
+          <h2>Book Your Dream Vacation</h2>
+          <form id="bookingForm">
+              <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="name" required>
+              </div>
+              <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" required>
+              </div>
+              <div class="mb-3 combined-phone">
+                <label for="phone" class="form-label">Phone Number</label>
+                <div class="d-flex">
+                  <select class="form-select country-code-select" id="countryCode" required>
+                  </select>
+                  <input type="number" class="form-control phone-input" id="phone" placeholder="Enter phone number" required>
                 </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" required>
-                </div>
-                <div class="mb-3">
-                    <label for="countryCode" class="form-label">Country Code</label>
-                    <select class="form-select" id="countryCode" required>
-                        <!-- Add options dynamically via JS -->
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="phone" class="form-label">Phone Number</label>
-                    <input type="number" class="form-control" id="phone" required>
-                </div>
-                <div class="mb-3">
-                    <label for="birthday" class="form-label">Birthday</label>
-                    <input type="date" class="form-control" id="birthday" required>
-                </div>
-                <div class="mb-3">
-                    <label for="martialStatus" class="form-label">Marital Status</label>
-                    <select class="form-select" id="martialStatus" required>
-                        <option value="single">Single</option>
-                        <option value="married">Married</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-
-        <!-- Travel Packages Section -->
-        <div class="home-packages-section">
-            <h2>Explore Our Travel Packages</h2>
-            <div class="packages-container" id="packages-container"></div>
-        </div>
-    </div>
+              </div>
+              
+              <div class="mb-3">
+                  <label for="birthday" class="form-label">Birthday</label>
+                  <input type="date" class="form-control" id="birthday" required>
+              </div>
+              <div class="mb-3">
+                  <label for="martialStatus" class="form-label">Marital Status</label>
+                  <select class="form-select" id="martialStatus" required>
+                      <option value="single">Single</option>
+                      <option value="married">Married</option>
+                  </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+      </div>
+      <div class="line"></div>
+      <!-- Travel Packages Section -->
+      <div class="home-packages-section">
+          <h2>Explore Our Travel Packages</h2>
+          <div class="packages-container" id="packages-container"></div>
+      </div>
+  </div>
+  
 
     <!-- About Section -->
     <div class="about-container" id="about">

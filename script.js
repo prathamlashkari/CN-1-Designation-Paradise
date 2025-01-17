@@ -1,9 +1,8 @@
-// Array of travel packages
 const packages = [
   {
       name: "Beach Getaway",
       photo: "https://cdn.pixabay.com/photo/2016/11/23/13/48/beach-1852945_640.jpg",
-      description: "Enjoy a relaxing time at the sunny beaches of Bali. Inclusive of hotel stay and guided tours."
+      description: "Enjoy the sunny beaches of Bali. Inclusive of hotel stay and guided tours."
   },
   {
       name: "Mountain Adventure",
@@ -18,7 +17,34 @@ const packages = [
   // Add more packages as needed
 ];
 
-// Array of country codes
+function displayPackages(filteredPackages) {
+  const container = document.getElementById("packages-container");
+  container.innerHTML = ''; // Clear previous content
+
+  filteredPackages.forEach(pkg => {
+      const packageElement = document.createElement('div');
+      packageElement.className = 'package';
+      packageElement.innerHTML = `
+          <div class="image-container">
+              <img src="${pkg.photo}" alt="${pkg.name}">
+          </div>
+          <h3 class="package-name">${pkg.name}</h3>
+          <p class="package-description">${pkg.description}</p>
+          <a href="#" class="book-now-btn">Book Now</a>
+      `;
+      container.appendChild(packageElement);
+  });
+}
+
+function filterPackages() {
+  const query = document.getElementById("searchInput").value.toLowerCase();
+  const filteredPackages = packages.filter(pkg => pkg.name.toLowerCase().includes(query));
+  displayPackages(filteredPackages);
+}
+
+// Initial display of all packages
+displayPackages(packages);
+
 const countryCodes = [
   { code: "+1", name: "USA" },
   { code: "+1", name: "Canada" },
@@ -42,10 +68,8 @@ const countryCodes = [
   { code: "+55", name: "Brazil" },
   { code: "+54", name: "Argentina" },
   { code: "+56", name: "Chile" },
-  // Add more countries as needed
 ];
 
-// Function to populate the country code dropdown
 function populateCountryCodes() {
   const selectElement = document.getElementById('countryCode');
   countryCodes.forEach(country => {
@@ -56,23 +80,5 @@ function populateCountryCodes() {
   });
 }
 
-function createPackageElements() {
-  const container = document.getElementById('packages-container');
-  packages.forEach(pkg => {
-      const packageElement = document.createElement('div');
-      packageElement.className = 'package';
-      packageElement.innerHTML = `
-          <div class="image-container">
-              <img src="${pkg.photo}" alt="${pkg.name}">
-          </div>
-          <h3 class="package-name">${pkg.name}</h3>
-          <p class="package-description">${pkg.description}</p>
-          <a href="#" class="book-now-btn btn btn-primary">Book Now</a>
-      `;
-      container.appendChild(packageElement);
-  });
-}
-
 // Initialize the page by populating country codes and package elements
 populateCountryCodes();
-createPackageElements();
