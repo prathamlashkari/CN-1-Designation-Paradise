@@ -3,142 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet">
     <title>Destination Paradise</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg container-fluid" style="background-color: #f5c2dc; padding: 1rem;">
-      <a class="navbar-brand" href="#">Destination Paradise</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  
+    <nav class="navbar navbar-expand-lg container-fluid" style="background-color: #f5c2dc;">
+      <div class="container-fluid">
+        <a class="navbar-brand lemon-regular" href="index.html">Destination Paradise</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse custom-nav" id="navbarNav">
-          <ul class="navbar-nav me-auto" style="padding-left: 23rem;" >
-              <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="destinationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Destinations
-                  </a>
-                  <ul class="dropdown-menu col" aria-labelledby="destinationsDropdown">
-                      <li><a class="dropdown-item" href="#">Beach Getaway</a></li>
-                      <li><a class="dropdown-item" href="#">Mountain Adventure</a></li>
-                      <li><a class="dropdown-item" href="#">City Life Experience</a></li>
-                      <li><a class="dropdown-item" href="#">More</a></li>
-                  </ul>
-              </li>
-              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#home">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Destinations
+              </a>
+              <ul class="dropdown-menu" id="destinationsDropdown">
+                <!-- Dynamically generated destinations will go here -->
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#about">More</a></li>
+            </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
           </ul>
-          <form class="d-flex">
-            <input type="text" id="searchInput" class="form-control" placeholder="Search Packages" oninput="filterPackages()">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+            <div id="searchSuggestions"></div> <!-- Updated container for suggestions -->            
+          </form>
+        </div>
+      </div>
+    </nav>
+  
+    <div class="container">
+      
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://cdn.pixabay.com/photo/2018/08/12/15/29/hintersee-3601004_1280.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>First slide label</h5>
+                  <p>Some representative placeholder content for the first slide.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://cdn.pixabay.com/photo/2017/01/30/15/35/autumn-2021154_640.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Second slide label</h5>
+                  <p>Some representative placeholder content for the second slide.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://cdn.pixabay.com/photo/2019/11/20/07/08/lake-4639368_1280.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Third slide label</h5>
+                  <p>Some representative placeholder content for the third slide.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://cdn.pixabay.com/photo/2013/10/09/02/27/lake-192991_1280.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Second slide label</h5>
+                  <p>Some representative placeholder content for the second slide.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://cdn.pixabay.com/photo/2017/02/01/22/02/mountain-landscape-2031539_1280.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Second slide label</h5>
+                  <p>Some representative placeholder content for the second slide.</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev previous-slide" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next next-slide" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        
+      <div class="home" id="home">
+        <div class="home-form-section">
+          <h2 class="form-title">Book Your Dream Vacation</h2>
+          <form id="bookingForm">
+              <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="name" required>
+              </div>
+              <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" required>
+                  <div id="emailFeedback" class="invalid-feedback">
+                      Please enter a valid email address.
+                  </div>
+              </div>
+              <div class="mb-3">
+                  <label for="phone" class="form-label">Phone Number</label>
+                  <div class="input-group phonenumber">
+                      <select class="form-select" id="countryCode">
+                      </select>
+                      <input type="number" class="form-control" id="phone" required>
+                  </div>
+                  <div id="phoneFeedback" class="invalid-feedback">
+                      Please enter a valid 10-digit phone number.
+                  </div>
+              </div>
+              <div class="mb-3">
+                  <label for="birthdate" class="form-label">Birthdate</label>
+                  <input type="date" class="form-control" id="birthday" required>
+                  <div id="ageFeedback" class="invalid-feedback">
+                      You must be at least 18 years old.
+                  </div>
+              </div>
+              <div class="mb-3">
+                  <label for="maritalStatus" class="form-label">Marital Status</label>
+                  <select class="form-select" id="maritalStatus">
+                      <option value="single">Single</option>
+                      <option value="married">Married</option>
+                      <!-- Add more options as needed -->
+                  </select>
+              </div>
+              <button type="submit" class="btn btn-form">Submit</button>
+              <div id="formSuccess" class="success-feedback">
+                Thanks for your interest, our tour experts will get back to you shorty!
+            </div>
+            
           </form>
       </div>
-  </nav>
+      
+        <div class="home-packages-section">
+          <h2 class="section-title">Explore Our Travel Packages</h2>
+          <div class="packages-container" id="packages-container">
+             
+              <!-- More packages can be added here -->
+          </div>
+      </div>
+      
 
-    <!-- Carousel -->
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-          <div class="carousel-item active">
-              <img src="https://cdn.pixabay.com/photo/2016/11/23/13/48/beach-1852945_640.jpg" class="d-block w-100" alt="Beach Getaway">
-              <div class="carousel-caption d-none d-md-block">
-                  <h5>Beach Getaway</h5>
-                  <p>Enjoy the sunny beaches of Bali.</p>
-              </div>
-          </div>
-          <div class="carousel-item">
-              <img src="https://cdn.pixabay.com/photo/2016/11/14/03/26/cliff-1822484_640.jpg" class="d-block w-100" alt="Mountain Adventure">
-              <div class="carousel-caption d-none d-md-block">
-                  <h5>Mountain Adventure</h5>
-                  <p>Explore the thrilling trails of the Himalayas.</p>
-              </div>
-          </div>
-          <div class="carousel-item">
-              <img src="https://cdn.pixabay.com/photo/2017/03/29/15/18/tianjin-2185510_1280.jpg" class="d-block w-100" alt="City Life Experience">
-              <div class="carousel-caption d-none d-md-block">
-                  <h5>City Life Experience</h5>
-                  <p>Discover the vibrant life of New York City.</p>
-              </div>
-          </div>
       </div>
-      <button class="carousel-control-prev previous-slide" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next next-slide" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-      </button>
-  </div>
-  
-    <!-- Home Section -->
-    <div class="container" id="home">
-      <div class="home-form-section">
-        <h2>Book Your Dream Vacation</h2>
-        <form id="bookingForm" onsubmit="return validateForm(event)">
-          <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" required>
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" required>
-          </div>
-          <div class="mb-3 combined-phone">
-            <label for="phone" class="form-label">Phone Number</label>
-            <div class="d-flex">
-              <select class="form-select country-code-select" id="countryCode" required>
-                <option value="+1">+1</option>
-                <option value="+91">+91</option>
-                <option value="+44">+44</option>
-                <!-- Add more country codes as needed -->
-              </select>
-              <input type="number" class="form-control phone-input" id="phone" placeholder="Enter phone number" required>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="birthday" class="form-label">Birthday</label>
-            <input type="date" class="form-control" id="birthday" required>
-          </div>
-          <div class="mb-3">
-            <label for="martialStatus" class="form-label">Marital Status</label>
-            <select class="form-select" id="martialStatus" required>
-              <option value="single">Single</option>
-              <option value="married">Married</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <p id="successMessage" style="display: none; color: green; margin-top: 10px;">Thanks for your interest, our tour experts will get back to you shortly!</p>
-        </form>
-      </div>
-      <div class="line"></div>
-      <!-- Travel Packages Section -->
-      <div class="home-packages-section">
-        <h2>Explore Our Travel Packages</h2>
-        <div class="packages-container" id="packages-container"></div>
-      </div>
-    </div>
-    
-    <!-- About Section -->
-    <div class="about-container" id="about">
+      <div class="about-container" id="about">
+        <h2 class="about-title">About Us</h2>
         <div class="row">
-            <div class="col-md-6">
-                <img src="https://via.placeholder.com/500" class="img-fluid" alt="About Image">
+            <div class="col-md-6 about-img">
+                <img src="https://th.bing.com/th/id/OIP.1d6tBbNiJTFQNEK_k0sSjQHaFj?rs=1&pid=ImgDetMain" alt="About Us" class="img-fluid">
             </div>
-            <div class="col-md-6">
-                <h3>About Us</h3>
-                <p>Welcome to Destination Paradise, your go-to travel agency for the best vacation packages. We specialize in offering exceptional destinations and unforgettable experiences.</p>
+            <div class="col-md-6 about-text">
+                <h3>Welcome to Destination Paradise</h3>
+                <p>Your ultimate guide to unwinding in the most beautiful destinations around the world. From secluded beaches to bustling cities, we curate the best travel experiences tailored just for you.</p>
+                <a href="#" class="btn about-btn">Learn More</a>
             </div>
         </div>
+    </div>    
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-
-    <!-- Custom Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 </html>

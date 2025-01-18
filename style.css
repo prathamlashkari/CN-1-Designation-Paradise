@@ -1,195 +1,282 @@
-body {
-  font-family: Arial, sans-serif;
+.lemon-regular {
+    font-family: "Lemon", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .navbar-nav {
+    justify-content: center;
+    width: 75%;
 }
 
-.navbar {
-  margin-bottom: 20px;
+/* Navbar Dropdown Enhancements */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* Remove the gap */
+}
+
+.dropdown-menu {
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.1);
+    border: none;
+    transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-item {
+    padding: 10px 20px;
+    color: #333;
+}
+
+.dropdown-item:hover {
+    background-color: #f5c2dc;
+    color: #fff;
+}
+
+.carousel {
+    height: 400px;
+    margin: 3rem;
+    border-radius: 15px;
 }
 
 .carousel-item img {
-  height: 60vh;
-  object-fit: cover;
+    height: 400px; /* Set the height to match the carousel */
+    width: 100%;  /* Set the width to fill the carousel */
+    border-radius: 15px;
+    object-fit: contain cover; /* Scale the image down to fit inside the container, maintaining the aspect ratio */
 }
 
-#home {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-  margin-top: 30px;
-  padding: 20px;
-  position: relative;
+/* Existing styles */
+.home {
+    display: flex;
 }
 
-.home-form-section,
-.home-packages-section {
-  flex: 1;
+/* New media query for phones and tablets */
+@media (max-width: 768px) { /* 768px is a common breakpoint for tablets */
+    .home {
+       display: flex;
+       flex-direction: column;
+    }
+
+    .home-video-section, .home-packages-section {
+        width: 100%; /* Make each section take full width */
+    }
+
+    #circularVideo {
+        width: 100%; /* Adjust the video size to take full width */
+        height: auto; /* Keep the height proportional */
+    }
 }
 
-.home-form-section {
-  padding: 20px;
-  background-color: #f5f5f5;
-  border-radius: 8px;
-  max-width: 45%;
+.home-packages-section{
+    width: 70%;
+    padding: 20px;
+    text-align: center;
 }
 
-.home-packages-section {
-  padding: 20px;
-}
 
-.home-form-section h2,
-.home-packages-section h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-#home .home-form-section form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-#home .home-form-section .form-label {
-  font-weight: bold;
-}
-
-#home .home-form-section .form-control,
-#home .home-form-section .form-select {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-}
-
-#home .home-form-section button {
-  margin-top: 10px;
-  background-color: #f5c2dc;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-#home .home-form-section button:hover {
-  background-color: #e2a7c5;
-}
-
-.combined-phone {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.combined-phone .d-flex {
-  display: flex;
-  gap: 10px;
-}
-
-.country-code-select {
-  width: 30%;
-}
-
-.phone-input {
-  flex: 1;
-}
-
-.home-packages-section h2 {
-  text-align: center;
+.section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
 .packages-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.packages-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-#searchInput {
-  width: 250px;
-  margin-left: 20px;
-  padding: 5px;
-  border-radius: 20px;
-  border: 1px solid #ccc;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .package {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  padding: 15px;
-  text-align: center;
+    width: 30%;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
 }
-
-.package img {
-  width: 100%;
-  border-radius: 8px;
+.image-container{
+    margin:0 auto;
+    width: 90%;
+    height: 7rem;
+    border-radius: 10px;
 }
-
-.package-name {
-  font-size: 1.2rem;
-  margin-top: 10px;
+.image-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
 }
-
-.package-description {
-  font-size: 1rem;
-  margin-top: 5px;
+.package h3{
+    margin-top: 1rem;
+    font-size: 17px;
+}
+.package p{
+    margin-top: 1rem;
+    font-size: 15px;
 }
 
 .book-now-btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #f5c2dc;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(245, 65, 176);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.book-now-btn:hover{
+    background-color: #007bff;
 }
 
-.book-now-btn:hover {
-  background-color: #e2a7c5;
+.form-title{
+    font-size: 23px;
+    margin:1.2rem ;
+    
 }
+
+.form-label{
+    font-weight: bold;
+    font-size: smaller;
+}
+#bookingForm .form-label {
+    margin-left: 5px;
+    text-align: left;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#bookingForm .form-control, #bookingForm .form-select {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+#bookingForm .btn-form {
+    background-color: rgb(245, 65, 176);
+    border-color: rgb(245, 65, 176);
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+}
+#bookingForm .btn-form:hover{
+    background-color: #007bff;
+    border-color:#007bff;
+}
+.phonenumber .form-select,
+.phonenumber .form-control {
+    flex: 1; /* Adjust flex properties to control size */
+}
+
+/* Make select narrower to fit better with phone input */
+.phonenumber .form-select {
+    max-width: 30%;
+}
+
+.phonenumber .form-control {
+    flex-grow: 2; /* Allow the phone input to take more space */
+}
+
+/* Success message styling */
+.success-feedback {
+    display: none;
+    color: green;
+    margin-top: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .home-form-section {
+        width: 100%;
+        margin-bottom: 20px;}
+    .package {
+        width: 100%;
+    }
+    #bookingForm {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    }
+    #bookingForm {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    }
+    
+    
+}
+
+@media (min-width: 768px) {
+    #bookingForm {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+        
+    }
+    .home-form-section{
+        width: 30%;
+        text-align: center;
+        border:0;
+        border-right: 2px solid rgb(175, 167, 167);
+        padding: 2px;
+    }
+    
+}
+
 
 .about-container {
-  background-color: #f5f5f5;
-  padding: 40px;
-  margin-top: 40px;
+    padding: 50px 15px;
+    background-color: #fff;
+    text-align: center;
 }
 
-.about-container h3 {
-  margin-bottom: 20px;
+.about-title {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: bold;
 }
 
-#carouselExampleCaptions {
-  width: 80%;
-  margin: 0 auto;
+.about-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.1);
 }
 
-.carousel-inner {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
+.about-text {
+    padding: 20px;
 }
 
-.carousel-item img {
-  object-fit: cover;
-  width: 100%;
-  height: 300px;
+.about-text h3 {
+    color: #333;
+    margin-bottom: 20px;
 }
 
-.carousel-caption h5,
-.carousel-caption p {
-  font-size: 1rem;
+.about-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: #000;
+.about-btn {
+    background-color:  rgb(245, 65, 176);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
 }
-.line {
-  height: 93vh;
-  border: 1px solid black;
+
+.about-btn:hover {
+    background-color:  #007bff;
+    color: #fff;
 }
+
+
